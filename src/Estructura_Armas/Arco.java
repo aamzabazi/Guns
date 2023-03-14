@@ -8,12 +8,11 @@ package Estructura_Armas;
  *
  * @author usuario
  */
-public class Espada extends ArmaAtaque {
-    public  Espada(){
+public class Arco extends ArmaAtaque {
+        public  Arco(){
         this.porcentaxe_ataque=0.40;//%
     }
     public void ActivarAtaque(Personaxe Personaxe1) {
-        Personaxe1.setAtaqueCorpoACorpo(true);
+       Personaxe1.setAtaqueArqueiro(true);
     }
-
 }

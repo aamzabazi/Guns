@@ -101,7 +101,7 @@ public class Personaxe {
     public void ELIMINARARMA(ArmaInterfaz Arma1) {
         ListaArmas.remove(Arma1);
     }
-    public void visulizar_datos(){
+    public  void visulizar_datos(){
         System.out.println("Nombre: " + this.getNome());
         System.out.println("Id: "+ this.getId());
         System.out.println("Puntos de Vida: "+ this.getPuntosVida());
@@ -118,7 +118,7 @@ public class Personaxe {
         
         
     }
-    public static void Equipar(Personaxe Personaxe1) {
+    public void Equipar() {
         Scanner teclado = new Scanner(System.in);
         System.out.println("Que arma queres equipar?");
         System.out.println("1: Para Escudo");
@@ -127,29 +127,29 @@ public class Personaxe {
         int posicionarma;
         switch (tipoarma) {
             case 1:
-                posicionarma=buscar_Arma(tipoarma,Personaxe1);
+                posicionarma=buscar_Arma(tipoarma);
                 if(posicionarma!=-1 && tipoarma==1){
-                    ListaArmas.get(posicionarma).equiparPersonaxe(Personaxe1);
+                    ListaArmas.get(posicionarma).equiparPersonaxe(this);
                 }
                 break;
             case 2:
-                posicionarma=buscar_Arma(tipoarma,Personaxe1);
+                posicionarma=buscar_Arma(tipoarma);
                 if(posicionarma!=-1 && tipoarma==1){
-                    ListaArmas.get(posicionarma).equiparPersonaxe(Personaxe1);
+                    ListaArmas.get(posicionarma).equiparPersonaxe(this);
                 }
                 break;
         }
     }
-    public int buscar_Arma(int tipoarma,Personaxe Personaxe1){
+    public int buscar_Arma(int tipoarma){
         int posicionarma=-1;
         for (int i = 0; i < ListaArmas.size(); i++) {
-            if (tipoarma==1 && Personaxe1.ListaArmas.get(i) instanceof Escudo ) {
-                Personaxe1.ListaArmas.get(i).equiparPersonaxe(Personaxe1);
+            if (tipoarma==1 && this.ListaArmas.get(i) instanceof Escudo ) {
+                this.ListaArmas.get(i).equiparPersonaxe(this);
                 posicionarma=i;
                 break;
             }
-            if(tipoarma==2  &&  Personaxe1.ListaArmas.get(i) instanceof Espada){
-                Personaxe1.ListaArmas.get(i).equiparPersonaxe(Personaxe1);
+            if(tipoarma==2  &&  this.ListaArmas.get(i) instanceof Espada){
+                this.ListaArmas.get(i).equiparPersonaxe(this);
                 posicionarma=i;
                 break;
             }
@@ -164,7 +164,7 @@ public class Personaxe {
     }
     public void desequipar(ArrayList<Personaxe>ListaPersonaxes,int posicion1pers,int posicion2pers){
         System.out.println("Desequipando armas...");
-        ListaPersonaxes.get(posicion1pers).
+        //ListaPersonaxes.get(posicion1pers).
     }
     
 }

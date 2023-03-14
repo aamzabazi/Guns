@@ -15,5 +15,5 @@ public class Escudo extends  ArmaDefensa {
     public void activarProteccion(Personaxe Personaxe1) {
        Personaxe1.setProteccionArqueiro(true);
     }
-    
+
 }

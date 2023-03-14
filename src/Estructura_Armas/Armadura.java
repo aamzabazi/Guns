@@ -8,12 +8,11 @@ package Estructura_Armas;
  *
  * @author usuario
  */
-public class Espada extends ArmaAtaque {
-    public  Espada(){
-        this.porcentaxe_ataque=0.40;//%
+public class Armadura extends ArmaDefensa {
+    public  Armadura(){
+        this.porcentaxe_vida=0.50;//%
     }
-    public void ActivarAtaque(Personaxe Personaxe1) {
-        Personaxe1.setAtaqueCorpoACorpo(true);
+    public void activarProteccion(Personaxe Personaxe1) {
+       Personaxe1.setPorteccionCorpoACorpo(true);
     }
-
 }

@@ -15,7 +15,7 @@ public class main {
 
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
-        int respuesta,posicionpersonaxe;
+        int respuesta, posicionpersonaxe;
         Personaxe Personaxe1;
         ArrayList<Personaxe> ListaPersonaxes = new ArrayList();
         Escudo Escudo1;
@@ -44,11 +44,11 @@ public class main {
                                 break;
                             case 2:
                                 Escudo1 = new Escudo();
-                                 posicionpersonaxe = BUSCAR_PERSONAXE(ListaPersonaxes);
+                                posicionpersonaxe = BUSCAR_PERSONAXE(ListaPersonaxes);
                                 if (posicionpersonaxe != -1) {
                                     ListaPersonaxes.get(posicionpersonaxe).ENGADIRARMA(Escudo1);
                                 } else {
-                                    System.out.println("No se encontr� el personaje");
+                                    System.out.println("No se encontrï¿½ el personaje");
                                 }
                                 break;
                             case 3:
@@ -57,50 +57,41 @@ public class main {
                                 if (posicionpersonaxe != -1) {
                                     ListaPersonaxes.get(posicionpersonaxe).ENGADIRARMA(Espada1);
                                 } else {
-                                    System.out.println("No se encontr� el personaje");
+                                    System.out.println("No se encontrï¿½ el personaje");
                                 }
+                                break;
+                            case 10:
+                                MENU();
                                 break;
                         }
                     } while (respuesta != 0);
                     break;
                 case 2:
-                    respuesta=MENUBATALLA();
+                    respuesta = MENUBATALLA();
                     int posicion1pers;
                     int posicion2pers;
-                    do{
-                        switch(respuesta){
+                    do {
+                        switch (respuesta) {
                             case 1:
-                                posicionpersonaxe=BUSCAR_PERSONAXE(ListaPersonaxes);
+                                posicionpersonaxe = BUSCAR_PERSONAXE(ListaPersonaxes);
                                 ListaPersonaxes.get(posicionpersonaxe).visulizar_datos();
                                 break;
                             case 2:
-                                System.out.println(" PEREPARANDO LA GRAN BATALLA");
                                 System.out.println("Introduzca el 1er personaje:");
-                                posicion1pers=BUSCAR_PERSONAXE(ListaPersonaxes);
+                                posicion1pers = BUSCAR_PERSONAXE(ListaPersonaxes);
                                 System.out.println("Introduzca el 2o personaje:");
-                                posicion2pers=BUSCAR_PERSONAXE(ListaPersonaxes);
-                                System.out.println("EL PRIMER JUGADOR ES : "+ ListaPersonaxes.get(posicion1pers).nome);
-                                System.out.println("EL SEGUNDO JUGADOR ES : "+ ListaPersonaxes.get(posicion1pers).nome);
-                                System.out.println("JUGADOR 1 ESCOGA QUE ARMAS AÑADIR A TU PERSONAJE.");
-                                System.out.println("ATAQUE:Espada,Arco.  DEFENSA:Escudo,Armadura");
-                                System.out.println("(1):Espada");
-                                System.out.println("(2):Arco");
-                                System.out.println("(3):Armadura");
-                                System.out.println("(4):Escudo");
-                                int equiparjug=teclado.nextInt();
-                                switch(equiparjug){
-                                    case 1:
-                                        Personaxe.Equipar(ListaPersonaxes.get(posicion1pers));
-                                        break;
-                                }
+                                posicion2pers = BUSCAR_PERSONAXE(ListaPersonaxes);
+                                batalla(ListaPersonaxes, posicion1pers, posicion2pers);
+                                break;
+                            case 10:
+                                MENU();
                                 break;
                         }
-                    }while(respuesta!=0);
+                    } while (respuesta != 0);
                     break;
             }
         } while (respuesta != 0);
     }
-        
 
     public static int MENU() {
         Scanner teclado = new Scanner(System.in);
@@ -119,24 +110,26 @@ public class main {
         int respuesta;
         System.out.println("MENU de Personaxe");
         System.out.println("1 :  Creacion dun personaje");
-        System.out.println("MENU de ARMAS PARA O PERSONAXE(Recuerda que una vez comience la batalla no podras añadir ninguna arma.)");
-        System.out.println("2 :  ENGADIR UN ESCUDO");
-        System.out.println("3 : ENGADIR UNA ESPADA.");
-        System.out.println("Pulse 0 para salir");
-        respuesta = teclado.nextInt();
-        return respuesta;
-    }
-    public static int MENUBATALLA(){
-         Scanner teclado = new Scanner(System.in);
-        int respuesta;
-        System.out.println("MENU de BATALLA");
-        System.out.println("1 :  VER ESTADISTICAS DE PERSONAXE");
-        System.out.println("2 :  Que COMIMENCE LA BATALLA");
+        System.out.println("MENU de COLECCION DE ARMAS PARA O PERSONAXE(Recuerda que una vez comience la batalla no podras aÃ±adir ninguna arma.)");
+        System.out.println("2 :  ENGADIR A LA COLECCION  UN ESCUDO.");
+        System.out.println("3 :  ENGADIR A LA COLECCION UNA ESPADA.");
+        System.out.println("Pulsa 10: Para volver al Menu principal");
         System.out.println("Pulse 0 para salir");
         respuesta = teclado.nextInt();
         return respuesta;
     }
 
+    public static int MENUBATALLA() {
+        Scanner teclado = new Scanner(System.in);
+        int respuesta;
+        System.out.println("MENU de BATALLA");
+        System.out.println("1 :  VER ESTADISTICAS DE PERSONAXE");
+        System.out.println("2 :  Que COMIMENCE LA BATALLA");
+        System.out.println("Pulsa 10: Para volver al Menu principal");
+        System.out.println("Pulse 0 para salir");
+        respuesta = teclado.nextInt();
+        return respuesta;
+    }
 
     public static int BUSCAR_PERSONAXE(ArrayList<Personaxe> ListaPersonaxes) {
         Scanner teclado = new Scanner(System.in);
@@ -151,14 +144,23 @@ public class main {
         }
         return posicion;
     }
-    /*
-     * ���IMPLEMENTACION PARA ENGADIR UN ARMA??? posicion =
-     * BUSCAR_PERSONAXE(ListaPersonaxes); if (posicion != -1) { for (int i = 0;
-     * i < ListaPersonaxes.get(posicion).ListaArmas.size(); i++) {
-     *
-     * if (ListaPersonaxes.get(posicion).ListaArmas.get(i) instanceof Escudo) {
-     * System.out.println("Ya hay un Escudo en las armas"); }
-     * ListaPersonaxes.get(posicion).ENGADIRARMA(Escudo1); } } else {
-     * System.out.println("No se encontr� el personaje"); } break;
-     */
+
+    public static void batalla(ArrayList<Personaxe> ListaPersonaxes, int posicion1pers, int posicion2pers) {
+        System.out.println(" PREPARANDO LA GRAN BATALLA");
+        System.out.println("EL PRIMER JUGADOR ES : " + ListaPersonaxes.get(posicion1pers).nome);
+        System.out.println("EL SEGUNDO JUGADOR ES : " + ListaPersonaxes.get(posicion2pers).nome);
+        System.out.println("JUGADOR 1 CON QUE ARMA ATACARA TU PERSONAJE (RECORDA SO PODRAS EQUIPAR O QUE XA AÑADISTE A TUA COLECCION DE ARMAS)).");
+        System.out.println("TU INFORMACION:");
+        ListaPersonaxes.get(posicion1pers).visulizar_datos();
+        System.out.println("ATAQUE:Espada,Arco.  DEFENSA:Escudo,Armadura");
+        ListaPersonaxes.get(posicion1pers).Equipar();
+        System.out.println("JUGADOR 2 CON QUE ARMA DEFENDARA A TU PERSONAXE (RECORDA SO PODRAS EQUIPAR O QUE XA AÑADISTE A TUA COLECCION DE ARMAS)).");
+        System.out.println("TU INFORMACION:");
+        ListaPersonaxes.get(posicion1pers).visulizar_datos();
+        System.out.println("ATAQUE:Espada,Arco.  DEFENSA:Escudo,Armadura.");
+    }
+    public void acciondearamas(){
+        //TODO
+    }
+
 }
