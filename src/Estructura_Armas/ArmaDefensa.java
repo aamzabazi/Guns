@@ -16,4 +16,9 @@ public abstract class ArmaDefensa implements ArmaInterfaz {
        puntosvida+=((Personaxe1.getPuntosVida()*this.porcentaxe_vida));
        Personaxe1.setPuntosVida(puntosvida);
     }
+    public void desequiparPerosnaxe(Personaxe Personaxe1){
+        double puntosvida=Personaxe1.getPuntosVida();
+       puntosvida-=((Personaxe1.getPuntosVida()*this.porcentaxe_vida));
+       Personaxe1.setPuntosVida(puntosvida);
+    }
 }

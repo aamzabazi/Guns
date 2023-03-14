@@ -118,7 +118,7 @@ public class Personaxe {
         
         
     }
-    public void Equipar(Personaxe Personaxe1) {
+    public static void Equipar(Personaxe Personaxe1) {
         Scanner teclado = new Scanner(System.in);
         System.out.println("Que arma queres equipar?");
         System.out.println("1: Para Escudo");
@@ -161,6 +161,10 @@ public class Personaxe {
             System.out.println("Arma equipada.");
         }
         return posicionarma;
+    }
+    public void desequipar(ArrayList<Personaxe>ListaPersonaxes,int posicion1pers,int posicion2pers){
+        System.out.println("Desequipando armas...");
+        ListaPersonaxes.get(posicion1pers).
     }
     
 }

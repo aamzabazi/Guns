@@ -17,4 +17,10 @@ public abstract class ArmaAtaque implements ArmaInterfaz {
         Personaxe1.setPuntosAtaque(puntosataque);
         ActivarAtaque(Personaxe1);
     }
+    public void desequiparPersonaxe(Personaxe Personaxe1){
+        double puntosataque=Personaxe1.puntosAtaque;
+        puntosataque-=((Personaxe1.getPuntosAtaque()*porcentaxe_ataque));
+        Personaxe1.setPuntosAtaque(puntosataque);
+        ActivarAtaque(Personaxe1);
+    }
 }
